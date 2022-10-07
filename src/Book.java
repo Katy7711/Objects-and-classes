@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Book {
 
     private final String name;
@@ -42,21 +44,17 @@ public class Book {
 
     }
 
-    @Override
-    public boolean equals(Object other) {
-        if (this.getClass() != other.getClass()) {
-            return false;
-        }
-        Book Book = (Book) other;
-        return name.equals(Book.name);
-    } // подскажите пожалуйста как правильно применить метод equals, у меня не получается, я хотела
-    //  сравнивать книги например, если у них одно название,год публикации и автор, то они равны, как сделать еще сравнение
-    // по году публикации и автору
-    // и вообще правильно я его применила?
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return publicationYear == book.publicationYear && name.equals(book.name) && author.equals(book.author);
+    }
 
     @Override
     public int hashCode() {
-        return java.util.Objects.hash(name, publicationYear, author);
+        return Objects.hash(name, publicationYear, author);
     }
 }

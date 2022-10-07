@@ -24,6 +24,8 @@ public class Main {
         Book book3 = new Book("Война и мир", 1864, author1);
         System.out.println(book1.equals(book3));
 
+        // почему после автоматической генерации equals у меня в консоле false, если book1 и book3 равны?
+
         System.out.println(book1.hashCode());
         System.out.println(book3.hashCode());
 
