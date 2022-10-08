@@ -25,8 +25,7 @@ public class Book {
 
     public Author getAuthor() {
         return this.author;
-    } // почему у меня тут выдает такую ошибку Method 'getAuthor()' is never used
-    // получается не надо создавать getAuthor?
+    } // и тут тоже не поняла, метод нигде не используется, он лишний или его все таки надо где-то использовать?
 
 
     public void setPublicationYear(int publicationYear) {
@@ -50,8 +49,9 @@ public class Book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return publicationYear == book.publicationYear && name.equals(book.name) && author.equals(book.author);
-    }
+        return Objects.equals(publicationYear, book.publicationYear) && Objects.equals(name, book.name) && Objects.equals(author, book.author);
+    }// то есть вот так надо? У меня тогда все равно выходит false. Не совсем поняла с этим методом, значит он может автоматически
+    // генерироваться с ошибкой и его надо подправлять?
 
     @Override
     public int hashCode() {

@@ -24,13 +24,11 @@ public class Main {
         Book book3 = new Book("Война и мир", 1864, author1);
         System.out.println(book1.equals(book3));
 
-        // почему после автоматической генерации equals у меня в консоле false, если book1 и book3 равны?
 
         System.out.println(book1.hashCode());
         System.out.println(book3.hashCode());
 
 
-        // почему у меня у book1 и book3 получаются разные хеш коды, если они равны? Что я делаю неправильно?
 
 
         System.out.println(book1);
